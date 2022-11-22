@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js">
+    </script>
+
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js">
+    </script> 
+
+    <style>
+
+
+
+        body {
+            text-align: center;
+        }
+
+        img {
+            height: 200px;
+            width: 350px;
+        }
+        #sdg {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        #sdg div {
+            margin: 0 4px 4px 4px;
+            padding: 0.4em;
+            display: inline-block;
+        }
+
+      
+        #outputvalues {
+            margin: 0 2px 2px 2px;
+            padding: 0.4em;
+            padding-left: 1.5em;
+            width: 250px;
+            border: 2px solid dark-green;
+            background: gray;
+        }
+
+        .listitemClass {
+            border: 1px solid #006400;
+            width: 350px;
+        }
+
+        .height {
+            height: 10px;
+        }
+    </style>
+
+    <script>
+        $(function () {
+            $("#sdg").sortable({
+                update: function (event, ui) {
+                    getIdsOfImages();
+                }//end update         
+            });
+        });
+
+        function getIdsOfImages() {
+            var values = [];
+            $('.listitemClass').each(function (index) {
+                values.push($(this).attr("id")
+                    .replace("imageNo", ""));
+            });
+            $('#outputvalues').val(values);
+        }
+    </script>
+</head>
+
+<body>
+    <div class="height"></div><br>
+    <div id="sdg">
+        <div id="imageNo1" class="listitemClass">
+            <img src="https://th.bing.com/th/id/R.a652d97bffb27991d42c01de7b833fec?rik=NqYsshcRUXH71w&riu=http%3a%2f%2ffullhdwall.com%2fwp-content%2fuploads%2f2016%2f11%2fColorful-HD-Flower.jpg&ehk=rx%2fwv7v3klzHrdkPuFY0JotUJIo%2bh9t%2b4rhhcCjTY0s%3d&risl=&pid=ImgRaw&r=0" alt="">
+        </div>
+
+        <div id="imageNo2" class="listitemClass">
+            <img src="https://th.bing.com/th/id/OIP.9CogbbDTM9qJfB3cBCYphwHaE8?pid=ImgDet&rs=1" alt="">
+        </div>
+
+        <div id="imageNo3" class="listitemClass">
+            <img src="https://www.wallpaperflare.com/static/335/587/630/blooming-lotus-flower-selective-focus-photography-wallpaper.jpg" alt="">
+        </div>
+
+        <div id="imageNo4" class="listitemClass">
+            <img src="https://www.hdwallpapers.in/download/pink_cosmos_flowers-1920x1200.jpg" alt="">
+        </div>
+
+        <div id="imageNo5" class="listitemClass">
+            <img src="https://images.pexels.com/photos/736230/pexels-photo-736230.jpeg?cs=srgb&dl=flor-flower-garden-736230.jpg&fm=jpg" alt="">
+        </div>
+
+        <div id="imageNo6" class="listitemClass">
+            <img src="https://flowerspicture.org/Flower_pictures_download/calendula-officinalis-picture.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>
